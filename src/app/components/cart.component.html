@@ -1,0 +1,25 @@
+<div>
+    <h2 *ngIf="_listOfItems.length == 0">No items added!</h2>
+
+    <table *ngIf="_listOfItems.length > 0">
+        <thead>
+            <th>Item</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Total</th>
+        </thead>
+        <tr *ngFor="let i of _listOfItems; let idx=index">
+            <td>{{ i.item }}</td>
+            <td>{{ i.price }}</td>
+            <td>{{ i.quantity }} </td>
+            <td>{{ i.totalPrice }} </td>
+            <td><button type="button" (click)="deleteItem(idx)">Delete</button></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td>Total: </td>
+            <td>{{totalPriceOfItems}}</td>
+        </tr>
+    </table>
+</div>

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Item } from './models';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,16 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'day2Cart';
+
+  listOfItems:Item[] = [];
+
+  addItem(item: Item) {
+    this.listOfItems = [... this.listOfItems, item];
+  }
+
+  deleteItem(index: number) {
+    const temp: Item[] = [...this.listOfItems];
+    temp.splice(index, 1);
+    this.listOfItems = temp;
+  }
 }
